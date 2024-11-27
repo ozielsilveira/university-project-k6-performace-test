@@ -10,16 +10,14 @@ export const rateContentOK = new Rate('status_ok_rate');
 export const options = {
   stages: [
     { duration: '5s', target: 10 },
-    { duration: '10s', target: 20 },
-    { duration: '20s', target: 30 },
-    { duration: '45s', target: 50 },
-    { duration: '55s', target: 100 },
-    { duration: '65s', target: 200 },
-    { duration: '70s', target: 300 }
+    { duration: '30s', target: 30 },    
+    { duration: '1m', target: 100 },
+    { duration: '135s', target: 300 },
   ],
   thresholds: {
     get_pets_duration: ['p(95)<5700'],
-    status_ok_rate: ['rate>0.88']
+    status_ok_rate: ['rate>0.88'],
+    http_req_failed: ['rate<0.12'],
   }
 };
 
